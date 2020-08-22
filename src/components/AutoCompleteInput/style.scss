@@ -1,0 +1,74 @@
+
+.form-search{
+    width: 80%;
+    display: flex;
+    position: relative;
+    box-shadow: rgba(98, 98, 98, 0.5) 0px 1px 2px 0px;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.search-box {
+    font-size: 13px;
+    border-width: 0px;
+    border-style: initial;
+    border-color: initial;
+    border-image: initial;
+    padding: 0px 8px;
+    border-radius: 4px 0px 0px 4px;
+    flex: 1 1 0%;
+    outline: none;
+}
+.select-btn {
+    cursor: pointer;
+    height: 40px;
+    color: rgb(74, 74, 74);
+    font-size: 14px;
+    font-weight: 400;
+    border-width: 0px;
+    border-style: initial;
+    border-color: initial;
+    border-image: initial;
+    padding: 0px 11px 0px 15px;
+    background: rgb(237, 238, 242);
+    border-radius: 0px 4px 4px 0px;
+    outline: none;
+}
+.search-box:focus{
+    outline: none
+}
+
+ul.options {
+  display: block;
+  list-style: none;
+  width: 80%;
+  transition: width 0.3s;
+  margin: auto;
+  position: relative;
+  padding: 0;
+}
+
+ul.options li {
+  display: block;
+  background: white;
+  margin: 10px auto;
+  padding: 10px;
+  font-size: 1.2rem;
+  width: 100%;
+  border-radius: 2px;
+}
+ul.options li:hover {
+  font-weight: bold;
+  color: #00b4cc;
+  cursor: pointer;
+  transition: 0.3s all;
+}
+
+ul.options li.option-active {
+  background: whitesmoke;
+  font-size: 1.5rem;
+  color: #00b4cc;
+}
+.no-options {
+  color: white;
+}
