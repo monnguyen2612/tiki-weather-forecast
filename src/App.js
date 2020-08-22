@@ -1,16 +1,26 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { Provider } from "react-redux";
 import logo from "./logo.svg";
 import "./App.css";
-import store from './store'
-import Sample from './components/Sample'
+import store from "./store";
+import Root from "./containers/Root";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 function App() {
   return (
     <Provider store={store}>
-      <div className="App">
-        <Sample/>
-      </div>
+      <Suspense fallback="loading">
+        <Router>
+        <div className="App">
+          <Root />
+        </div>
+        </Router>
+      </Suspense>
     </Provider>
   );
 }

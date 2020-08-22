@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import * as weatherAction from "../../redux/weather/actions";
 
-const SampleComponent = ({}) => {
+const Home = ({}) => {
   const dispatch = useDispatch();
   const { t, i18n } = useTranslation();
   const a = useSelector((globalState) => globalState.text);
@@ -39,4 +39,4 @@ const SampleComponent = ({}) => {
     </div>
   );
 };
-export default SampleComponent;
+export default Home;
