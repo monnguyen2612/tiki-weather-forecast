@@ -1,5 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+
 import * as weatherAction from "../../redux/weather/actions";
 import del from "./delete.png";
 import "./style.scss";
@@ -12,7 +14,7 @@ const CityCard = ({ cityCurrentWeather }) => {
 
   return (
     <div className="weather-card madrid">
-      <a href={`detail/${cityCurrentWeather.name}`}>
+      <Link to={`detail/${cityCurrentWeather.name}`}>
         <div className="weather-icon sun"></div>
         <h1>{`${
           cityCurrentWeather.main
@@ -20,7 +22,7 @@ const CityCard = ({ cityCurrentWeather }) => {
             : null
         }ºC`}</h1>
         <p>{cityCurrentWeather.name}</p>
-      </a>
+      </Link>
       <img alt="" onClick={_removeCity} src={del} className="del-btn" />
     </div>
   );

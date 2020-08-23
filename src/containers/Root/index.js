@@ -10,7 +10,7 @@ const Root = (props) => {
   return (
     <div className="app-wrapper">
       <Switch>
-        <Route exact path="/detail/:id" component={Detail} />
+        <Route path="/detail/:id" component={Detail} />
         <Route exact path="" component={Home} />
       </Switch>
     </div>
