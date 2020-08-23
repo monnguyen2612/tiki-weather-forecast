@@ -1,23 +1,28 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import * as weatherAction from "../../redux/weather/actions";
+import del from "./delete.png";
 import "./style.scss";
 
 const CityCard = ({ cityCurrentWeather }) => {
-  return (
-    <a className="weather-card madrid" href="/detail/id">
-      <div className="weather-icon sun"></div>
-      <h1>{`${
-        cityCurrentWeather.main
-          ? Math.round(cityCurrentWeather.main.temp - 273.15)
-          : null
-      }ºC`}</h1>
-      <p>{cityCurrentWeather.name}</p>
+  const dispatch = useDispatch();
+  const _removeCity = () => {
+    dispatch(weatherAction.removeCity(cityCurrentWeather.name));
+  };
 
-      {/* {[1,2,3].map((x) => <a class="weather-card london" href='/detail/id'>
-        <div class="weather-icon cloud"></div>
-        <h1>14º</h1>
-        <p>London</p>
-      </a>)} */}
-    </a>
+  return (
+    <div className="weather-card madrid">
+      <a href={`detail/${cityCurrentWeather.name}`}>
+        <div className="weather-icon sun"></div>
+        <h1>{`${
+          cityCurrentWeather.main
+            ? Math.round(cityCurrentWeather.main.temp - 273.15)
+            : null
+        }ºC`}</h1>
+        <p>{cityCurrentWeather.name}</p>
+      </a>
+      <img alt="" onClick={_removeCity} src={del} className="del-btn" />
+    </div>
   );
 };
 

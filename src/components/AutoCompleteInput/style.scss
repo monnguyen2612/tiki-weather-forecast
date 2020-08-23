@@ -6,6 +6,7 @@
     box-shadow: rgba(98, 98, 98, 0.5) 0px 1px 2px 0px;
     justify-content: center;
     margin: 0 auto;
+    border-radius: 20px;
 }
 
 .search-box {
@@ -15,7 +16,7 @@
     border-color: initial;
     border-image: initial;
     padding: 0px 8px;
-    border-radius: 4px 0px 0px 4px;
+    border-radius: 20px 0px 0px 20px;
     flex: 1 1 0%;
     outline: none;
 }
@@ -31,7 +32,7 @@
     border-image: initial;
     padding: 0px 11px 0px 15px;
     background: rgb(237, 238, 242);
-    border-radius: 0px 4px 4px 0px;
+    border-radius: 0px 20px 20px 0px;
     outline: none;
 }
 .search-box:focus{

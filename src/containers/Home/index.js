@@ -1,4 +1,4 @@
-import React, { useState, Suspense, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
@@ -10,37 +10,49 @@ import vietnam from "./vietnam.png";
 
 import "./style.scss";
 
-const Home = ({}) => {
+const Home = () => {
   const dispatch = useDispatch();
   const { t, i18n } = useTranslation();
   const a = useSelector((globalState) => globalState.text);
+  const [isMoreThanTen, setIsMoreThanTen] = useState(false);
   const [language, setLanguage] = useState("");
 
   useEffect(() => {
-    dispatch(weatherAction.fetchWeatherOfCities(["london", "saigon"]));
+    // dispatch(weatherAction.fetchWeatherOfCities(["london", "saigon"]));
     navigator.geolocation.getCurrentPosition(async (x) => {
       const response = await axios.get(
         `http://api.openweathermap.org/data/2.5/weather?lat=${x.coords.latitude}&lon=${x.coords.longitude}&appid=5e530d8d37d01c0a8823933ade83f304`
-        // "https://cors-anywhere.herokuapp.com/https://samples.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=439d4b804bc8187953eb36d2a8c26a02"
-      );
-      localStorage.setItem(
-        "listCities",
-        []
       );
       const lS = localStorage.getItem("listCities");
-      if (lS.length == 0) {
+      if (lS === null || JSON.parse(lS).length === 0) {
         localStorage.setItem(
           "listCities",
           JSON.stringify([response.data.name])
         );
       }
-      dispatch(weatherAction.fetchWeather(response.data.name));
+      dispatch(
+        weatherAction.fetchWeatherOfCities(
+          JSON.parse(localStorage.getItem("listCities"))
+        )
+      );
     });
-  }, []);
+  }, [dispatch]);
 
-  const onFetch = (keyword) => {
-    dispatch(weatherAction.fetchWeather(keyword));
+  useEffect(() => {
+    if (a.listCities.length > 10) {
+      setIsMoreThanTen(true);
+    } else {
+      setIsMoreThanTen(false);
+    }
+  }, [isMoreThanTen, a.listCities.length]);
+  // const onFetch = (keyword) => {
+  //   dispatch(weatherAction.fetchWeather(keyword));
+  // };
+
+  const onAddCity = (keyword) => {
+    dispatch(weatherAction.addCity(keyword));
   };
+
   const onChangeLanguage = () => {
     if (language === "en-US") {
       i18n.changeLanguage("vi-VI");
@@ -55,9 +67,12 @@ const Home = ({}) => {
 
   return (
     <div className="home-container">
-      <h1>Weather Forecast</h1>
-      <h2>{t("title")}</h2>
-      <AutoCompleteInput onSelectCity={onFetch} />
+      <h1 className="heading">TIKI Weather Forecast</h1>
+      <h3>{t("title")}</h3>
+      <AutoCompleteInput
+        onSelectCity={onAddCity}
+        disabled={isMoreThanTen ? true : false}
+      />
       <img
         className="country-flag"
         alt="language"
@@ -66,7 +81,9 @@ const Home = ({}) => {
       />
 
       <div className="weather-wrapper">
-        <CityCard cityCurrentWeather={a.cityweather} />
+        {a.listWeatherOfCities.map((cityweather) => (
+          <CityCard cityCurrentWeather={cityweather} />
+        ))}
       </div>
     </div>
   );

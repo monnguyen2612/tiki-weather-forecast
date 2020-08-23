@@ -1,3 +1,9 @@
 {
-    "title": "Willkommen bei react und react-i18next"
+    "title": "Weather Forecast Application",
+    "PRECIPITATION": "PRECIPITATION",
+    "HUMIDITY": "HUMIDITY",
+    "WIND": "WIND",
+    "TEMPERATURE MAX": "TEMPERATURE MAX",
+    "TEMPERATURE MIN": "TEMPERATURE MIN",
+    "Change location": "Change location"
 }

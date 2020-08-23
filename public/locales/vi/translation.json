@@ -1,3 +1,9 @@
 {
-    "title": "Vi lec"
+    "title": "Ứng dụng xem dự báo thời tiết",
+    "PRECIPITATION": "Dự đoán sẽ mưa",
+    "HUMIDITY": "Độ ẩm",
+    "WIND": "Gió",
+    "TEMPERATURE MAX": "Nhiệt độ cao nhất",
+    "TEMPERATURE MIN": "Nhiệt độ thấp nhất",
+    "Change location": "Thay đổi thành phố"
 }

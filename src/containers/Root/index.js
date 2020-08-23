@@ -1,16 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
-import { BrowserRouter as Router,
-   Switch, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import { withRouter } from "react-router-dom";
-import Detail from '../Detail/index.js'
-import Home from '../Home/index.js'
+import Detail from "../Detail/index.js";
+import Home from "../Home/index.js";
 
 const Root = (props) => {
-  const setTokens = () => {
-    localStorage.getItem("cities");
-  };
-
   return (
     <div className="app-wrapper">
       <Switch>

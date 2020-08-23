@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import "./style.scss";
 import { city_names } from "./data";
 
 export class AutoCompleteInput extends Component {
+  
   state = {
     activeOption: 0,
     filteredOptions: [],
@@ -12,7 +12,6 @@ export class AutoCompleteInput extends Component {
   };
 
   onChange = (e) => {
-    console.log("onChanges");
     const userInput = e.currentTarget.value;
 
     const filteredOptions = city_names.filter(
@@ -52,7 +51,6 @@ export class AutoCompleteInput extends Component {
       this.setState({ activeOption: activeOption - 1 });
     } else if (e.keyCode === 40) {
       if (activeOption === filteredOptions.length - 1) {
-        console.log(activeOption);
         return;
       }
       this.setState({ activeOption: activeOption + 1 });
@@ -102,6 +100,7 @@ export class AutoCompleteInput extends Component {
             onChange={onChange}
             onKeyDown={onKeyDown}
             value={userInput}
+            disabled = {this.props.disabled}
           />
           <button
             className="select-btn"
