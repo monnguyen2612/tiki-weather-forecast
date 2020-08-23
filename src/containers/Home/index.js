@@ -21,7 +21,7 @@ const Home = () => {
     // dispatch(weatherAction.fetchWeatherOfCities(["london", "saigon"]));
     navigator.geolocation.getCurrentPosition(async (x) => {
       const response = await axios.get(
-        `http://api.openweathermap.org/data/2.5/weather?lat=${x.coords.latitude}&lon=${x.coords.longitude}&appid=5e530d8d37d01c0a8823933ade83f304`
+        `https://api.openweathermap.org/data/2.5/weather?lat=${x.coords.latitude}&lon=${x.coords.longitude}&appid=5e530d8d37d01c0a8823933ade83f304`
       );
       const lS = localStorage.getItem("listCities");
       if (lS === null || JSON.parse(lS).length === 0) {

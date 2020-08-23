@@ -26,7 +26,7 @@ export function* watchFetch() {
 
 function* fetchWeather(action) {
   const res = yield axios.get(
-    `http://api.openweathermap.org/data/2.5/weather?q=${action.payload}&appid=76d9f973716785e597cc6210d5523de5`
+    `https://api.openweathermap.org/data/2.5/weather?q=${action.payload}&appid=76d9f973716785e597cc6210d5523de5`
   );
   const data = res.data;
   yield put(fetchWeatherSuccessAction(data));
@@ -35,7 +35,7 @@ function* fetchWeather(action) {
 function* fetchWeatherOfCities(action) {
   const promises = action.payload.map((citiesname) => {
     return axios.get(
-      `http://api.openweathermap.org/data/2.5/weather?q=${citiesname}&appid=76d9f973716785e597cc6210d5523de5`
+      `https://api.openweathermap.org/data/2.5/weather?q=${citiesname}&appid=76d9f973716785e597cc6210d5523de5`
     );
   });
   const res = yield Promise.all(promises);
@@ -46,7 +46,7 @@ function* fetchWeatherOfCities(action) {
 function* addCity(action) {
   const promises = action.payload.map((citiesname) => {
     return axios.get(
-      `http://api.openweathermap.org/data/2.5/weather?q=${citiesname}&appid=76d9f973716785e597cc6210d5523de5`
+      `https://api.openweathermap.org/data/2.5/weather?q=${citiesname}&appid=76d9f973716785e597cc6210d5523de5`
     );
   });
   const res = yield Promise.all(promises);
@@ -57,7 +57,7 @@ function* addCity(action) {
 function* removeCity(action) {
   const promises = action.payload.map((citiesname) => {
     return axios.get(
-      `http://api.openweathermap.org/data/2.5/weather?q=${citiesname}&appid=76d9f973716785e597cc6210d5523de5`
+      `https://api.openweathermap.org/data/2.5/weather?q=${citiesname}&appid=76d9f973716785e597cc6210d5523de5`
     );
   });
   const res = yield Promise.all(promises);
