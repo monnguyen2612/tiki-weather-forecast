@@ -6,6 +6,7 @@ import Detail from "../Detail/index.js";
 import Home from "../Home/index.js";
 
 const Root = (props) => {
+
   return (
     <div className="app-wrapper">
       <Switch>

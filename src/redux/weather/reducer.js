@@ -16,7 +16,7 @@ import {
 const initialState = {
   cityweather: {},
   listWeatherOfCities: [],
-  listCities: JSON.parse(localStorage.getItem("listCities")),
+  listCities: JSON.parse(localStorage.getItem("listCities"))||[],
   flag: false,
 };
 export const textReducer = (state = initialState, action) => {
