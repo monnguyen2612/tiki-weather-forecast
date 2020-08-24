@@ -13,9 +13,9 @@ const CityCard = ({ cityCurrentWeather }) => {
   };
 
   return (
-    <div className="weather-card madrid">
+    <div className="weather-card">
       <Link to={`detail/${cityCurrentWeather.name}`}>
-        <div className="weather-icon sun"></div>
+        <div className={`weather-icon ${Math.round(Math.random())?"sun":"cloud"}`}></div>
         <h1>{`${
           cityCurrentWeather.main
             ? Math.round(cityCurrentWeather.main.temp - 273.15)
