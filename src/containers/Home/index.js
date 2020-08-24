@@ -55,9 +55,9 @@ const Home = () => {
 
   const onChangeLanguage = () => {
     if (language === "en-US") {
-      i18n.changeLanguage("vi-VI");
-      setLanguage("vi-VI");
-      localStorage.setItem("i18nextLng", "vi-VI");
+      i18n.changeLanguage("vi");
+      setLanguage("vi");
+      localStorage.setItem("i18nextLng", "vi");
     } else {
       i18n.changeLanguage("en-US");
       setLanguage("en-US");

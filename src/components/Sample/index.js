@@ -15,8 +15,8 @@ const SampleComponent = ({}) => {
   };
   const onChangeLanguage = () => {
     if (language === "en-US") {
-      i18n.changeLanguage("vi-VI");
-      setLanguage("vi-VI");
+      i18n.changeLanguage("vi");
+      setLanguage("vi");
     } else {
       i18n.changeLanguage("en-US");
       setLanguage("en-US");

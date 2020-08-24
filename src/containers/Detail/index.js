@@ -121,7 +121,7 @@ const Detail = (props) => {
           <ul className="week-list">
             {groups[activeDate||Object.keys(groups)[0]]?.map((x,index)=><li className="active" key={index}>
               <i className="day-icon" data-feather={x.weather[0].main.includes('lear')?"sun":x.weather[0].main.includes('loud')?"cloud":"cloud-rain"}></i>
-              <span className="day-name">{x.dt_txt}</span>
+              <span className="day-name">{x.dt_txt.replace(':00:00','h')}</span>
             <span className="day-temp">{Math.round(x.main?.temp-273)}°C</span>
             </li>)}
             <div className="clear"></div>
