@@ -31,6 +31,7 @@ const Detail = (props) => {
   const groups =
     a.detailWeatherOfCity?.list.reduce((groups, weather) => {
       const date = new Date(weather.dt * 1000).toLocaleDateString("vi-VI");
+      console.log(date)
       if (!groups[date]) {
         groups[date] = [];
       }
@@ -121,7 +122,8 @@ const Detail = (props) => {
           <ul className="week-list">
             {groups[activeDate||Object.keys(groups)[0]]?.map((x,index)=><li className="active" key={index}>
               <i className="day-icon" data-feather={x.weather[0].main.includes('lear')?"sun":x.weather[0].main.includes('loud')?"cloud":"cloud-rain"}></i>
-              <span className="day-name">{x.dt_txt.replace(':00:00','h')}</span>
+              <span className="day-name">{new Date(x.dt*1000).toLocaleDateString("vi-VI")}</span>
+              <span className="day-name">{new Date(x.dt*1000).toLocaleTimeString("vi-VI")}</span>
             <span className="day-temp">{Math.round(x.main?.temp-273)}°C</span>
             </li>)}
             <div className="clear"></div>
